@@ -1,0 +1,28 @@
+# PROSESLER
+
+Linux altında çalışan her program bir süreçtir
+
+## PID - PROSES ID
+Prosese ait kimliktir
+
+## UID - USER ID
+Bu process'i kullanan user'a ait olan id'dir.
+
+## PPID - PARENT PROCESS ID  
+
+
+## MEVCUT SÜREÇLERİN GÖRÜNTÜLENMESİ
+
+Çalışan süreçlerin görüntülenmesi
+```bash
+ps -ef
+```
+
+bu komut
+
+```bash
+man ps
+```
+ile incelenebilir.
+
+![ps_ef](ps_ef.png)
