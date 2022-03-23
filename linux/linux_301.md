@@ -141,3 +141,7 @@ sudo kill 102755 # root erisim sifresi gerekiyor
 
 
 ## süreç sonlandırma çeşitleri
+
+```bash
+kill -l 
+```
