@@ -10,10 +10,17 @@
 		- [HTOP KOMUTU KULLANIMI](#htop-komutu-kullanimi)
 	- [SURECLERIN SONLANDIRILMASI](#sureclerin-sonlandirilmasi)
 		- [SUDO ILE ACILAN UYGULAMANIN SONLANDIRILMASI](#sudo-ile-acilan-uygulamanin-sonlandirilmasi)
-	- [süreç sonlandırma çeşitleri](#süre-sonlandrma-eitleri)
+	- [SÜREÇ SONLANDIRMA ÇEŞITLERI](#süre-sonlandirma-eitleri)
+		- [PKILL ILE SONLANDIRMA](#pkill-ile-sonlandirma)
+	- [SERVIS KAVRAMI](#servis-kavrami)
+		- [SERVIS CESITLERI](#servis-cesitleri)
+		- [SERVISLERIN GORUNTULENMESI](#servislerin-goruntulenmesi)
+			- [ÇALIŞAN SERVİSLERİ GÖRÜNTÜLEME](#alian-servisleri-görüntüleme)
+			- [ÇALIŞAN SERVİSLER HAKKINDA BİLGİ ALMA](#alian-servisler-hakkinda-bilgi-alma)
+			- [MEVCUT SERVIS ILE ILGILI DUZENLEME YAPMA](#mevcut-servis-ile-ilgili-duzenleme-yapma)
+			- [MEVCUT SERVISI YENIDEN BASLATMA](#mevcut-servisi-yeniden-baslatma)
 
 <!-- /TOC -->
-
 
 
 # PROSESLER
@@ -140,8 +147,89 @@ sudo kill 102755 # root erisim sifresi gerekiyor
 ![sudo_kill_gedit](sudo_kill_gedit.png)
 
 
-## süreç sonlandırma çeşitleri
+## SÜREÇ SONLANDIRMA ÇEŞITLERI
+
+Sonlandırmak istediğiniz uygulamaya ait PID kodunu bulduktan sonra aşağıda yer alan kodlardan sonlandırma işlemini gerçekleştirebilirsiniz.
+
+* 9) SIGKILL (Program her ne yapıyorsa yapsın anında kapat)
+* 15) SIGTERM (Program yaptığı işi sonlandırana kadar bekle ve kapat)
 
 ```bash
-kill -l 
+kill -l
+```
+![kill_l](kill_l.png)
+
+Bu şekilde bir uygulama kapatmak istediğiniz de aşağıdaki kodu yazarak programı sonlandırabilirsiniz.
+
+```bash
+kill -9 15575   # kill -9 {PID}
+kill -15 15575  # kill -15 {PID}
+```
+
+### PKILL ILE SONLANDIRMA
+
+Aynı şekilde programlarınızı `pkill` komutu ile de sonlandırabilirsiniz.
+
+```bash
+pkill gedit # pkill {processname}
+```
+
+## SERVIS KAVRAMI
+
+Arka planda sürekli gerektiğinde kullanılmak için çalışan uygulamalara servis denir.
+
+### SERVIS CESITLERI
+
+- Kullanıcı Servisleri
+- Web Servisleri
+- Sanallaştırma Servisleri
+- Uzaktan Erişim Servisleri
+- Log Servisleri
+
+
+### SERVISLERIN GORUNTULENMESI
+
+Sistemde çalışan servislerin görüntülenmesi için aşağıdaki komut kullanılır.
+
+```bash
+systemctl list-units --type service
+```
+
+![systemctl](systemctl_service.png)
+
+#### ÇALIŞAN SERVİSLERİ GÖRÜNTÜLEME
+
+Yukarıdaki komutta sistemdeki tüm servisleri görüntülüyoruz. Fakat sadece sistemde aktif olarak çalışan servisleri görmek istediğimizde komuta aşağıdaki eklemeyi yapmamız gerekir.
+
+```bash
+systemctl list-units --type service --state running
+```
+![systemctl_running](systemctl_running.png)
+
+
+#### ÇALIŞAN SERVİSLER HAKKINDA BİLGİ ALMA
+
+```bash
+systemctl status postgresql@14-main.service
+```
+![systemctl_status](systemctl_status.png)
+
+#### MEVCUT SERVIS ILE ILGILI DUZENLEME YAPMA
+
+
+
+```bash
+systemctl status cron.service # buradaki output'ta loaded kısmından geri donus saglandi
+cat  /lib/systemd/system/cron.service
+batcat /lib/systemd/system/cron.service
+```
+Yukarıda verilen komutlar ile sistem uzerinde calisan servis tespit edilip servis icerigine girildi. Oradan `nano` yardımı ile sistem duzenlendi.
+
+#### MEVCUT SERVISI YENIDEN BASLATMA
+
+Eğer servis yeniden başlatılacaksa sistemde bu servise ait isim
+
+```bash
+systemctl list-units --type service --state exited #sistemde goruntuleme saglandı
+systemctl restart corn.service
 ```
