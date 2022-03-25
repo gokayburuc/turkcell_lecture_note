@@ -227,7 +227,7 @@ Yukarıda verilen komutlar ile sistem uzerinde calisan servis tespit edilip serv
 
 #### MEVCUT SERVISI YENIDEN BASLATMA
 
-Eğer servis yeniden başlatılacaksa sistemde bu servise ait isim
+Eğer servis yeniden başlatılacaksa sistemde bu servise ait isim bulunur ve o isim `restart` sonrasinda yazilir.
 
 ```bash
 systemctl list-units --type service --state exited #sistemde goruntuleme saglandı
