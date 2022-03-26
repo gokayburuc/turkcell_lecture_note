@@ -321,3 +321,45 @@ bash tarih.sh
 * BSD
 * LGPL
 * AGPL
+
+Açık kaynaklı kodlu yazılım ile özgür yazılım farklı kavramlardır. 
+
+* Özgür Yazılım - Free Software 
+
+* Açık Kaynak Kodlu Yazılım - Open Source Software 
+
+#### GNU KAVRAMI 
+
+
+
+> **GNU**:
+>
+> GNU is an operating system that is free software—that is, it respects users' freedom. The GNU operating system consists of GNU packages (programs specifically released by the GNU Project) as well as free software released by third parties. The development of GNU made it possible to use a computer without software that would trample your freedom.
+
+Resource : [GNU PHILOSOPHY](https://www.gnu.org/philosophy/philosophy.html)
+
+Özgür Yazılım aşağıdaki 4 temel hakkı sağlar.
+
+1. - (0) to run the program - Programı çalıştırma
+2. - (1) to study and change the program in source code form, - Program üzerinde değişiklik yapma ve programa istediğini yaptırabilme hakkı
+3. - (2) to redistribute exact copies,  - Kopyaları dağıtma hakkı
+4. - (3) to distribute modified versions. - Değiştirilmiş versiyonları dağıtma hakkı
+
+#### UBUNTU DAĞITIMI İLE İLGİLİ BİLGİ 
+
+Ubuntu yazılımı birçok farklı lisansın birleşimi olarak yayınlanmış bir yazılımdır.
+
+#### GNU DESKTOP ENVIRONMENT LISTESI
+
+| arayüz cesidi | resmi sitesi                           |
+| ------------- | -------------------------------------- |
+| Unity         | https://unity8.io/                     |
+| XCFE          | https://xfce.org/                      |
+| GNOME         | https://www.gnome.org/                 |
+| MATE          | https://mate-desktop.org/              |
+| KDE           | https://kde.org/                       |
+| Cinnamon      | https://cinnamon-spices.linuxmint.com/ |
+| Budgie        | https://getsol.us/home/                |
+| LXQt          | https://lxqt-project.org/              |
+| LXDE          | https://www.lxde.org/                  |
+
