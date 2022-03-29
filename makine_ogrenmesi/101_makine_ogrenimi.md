@@ -71,7 +71,7 @@ Algoritma ezberleme düzeyinde bir eğitim setini öğrendikten sonra hiç görm
 
 #### DETERMİNİSTİK MODEL (KESIN)
 
-<img src="/home/gokayburuc/Desktop/deterministik_model.png" alt="Deterministik_Model" style="zoom: 25%;" />
+<img src="/home/gokayburuc/Desktop/deterministik_model.png" alt="Deterministik_Model"  />
 
 
 
@@ -131,3 +131,104 @@ Model içinden veri setlerinin yerine bölünmüş kısımlar farklı setler olu
 
 ## MODELLERİN BAŞARI DEĞERLENDİRMESİ 
 
+![image-20220328223920425](/home/gokayburuc/.config/Typora/typora-user-images/image-20220328223920425.png)
+
+### MSE - Hata Kareler Ortalaması 
+
+Yukarıdaki formül göz önüne alındığında bulunan değer hata kareler ortalaması ismini alır.
+
+![Machine learning: an introduction to mean squared error and regression lines](https://cdn-media-1.freecodecamp.org/images/hmZydSW9YegiMVPWq2JBpOpai3CejzQpGkNG)
+
+
+
+#### MSE ORNEK UYGULAMASI 
+
+![image-20220328224818130](/home/gokayburuc/.config/Typora/typora-user-images/image-20220328224818130.png)
+
+Yukarıdaki örnekte soldan sağa doğru değerlere bakıldığında son işlem olan karelerin toplanması işlemi sonrasında elimizdeki veri miktarına bölerek (11) model başarı değerlendirmesine ulaşabiliyoruz (0.37)
+
+### RMSE - Hata Kareler Ortalamasının Karekök Değeri 
+
+![](https://4.bp.blogspot.com/-wG7IbjTfE6k/XGUvqm7TCVI/AAAAAAAAAZU/vpH1kuKTIooKTcVlnm1EVRCXLVZM9cPNgCLcBGAs/s1600/formula-MAE-MSE-RMSE-RSquared.JPG)
+
+> Based on a rule of thumb, it can be said that RMSE values **between 0.2 and 0.5** shows that the model can relatively predict the data accurately. In  addition, Adjusted R-squared more than 0.75 is a very good value for  showing the accuracy. In some cases, Adjusted R-squared of 0.4 or more  is acceptable as well.
+
+### MAE - Ortalama Mutlak Hata 
+
+Yukarıdaki formül sayfasındaki değerlerde yer alıyor. Negatiflikten kurtarma adına yapılan işlemdir.
+
+
+
+### SINIFLANDIRMA MODELLERİ İÇİN BAŞARI DEĞERLENDİRMESİ 
+
+![image-20220328225309374](/home/gokayburuc/.config/Typora/typora-user-images/image-20220328225309374.png)
+
+#### ROC EĞRİSİ
+
+![roc](https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Roc_curve.svg/220px-Roc_curve.svg.png)
+
+Eğri ile Random Classifier arasında kalan alan ne kadar büyükse model o derece başarılıdır. Bu alana AUC (Area Under Curve) adı verilir.
+
+## YANLILIK - VARYANS DEĞİŞ TOKUŞU (BIAS - VARIANCE TRADEOFF)
+
+### Hata Türleri
+
+#### Eğitim Hatası
+
+Modeli kurmak için kullanılan veri seti üzerinde elde ettiğimiz hatadır.
+
+#### Test Hatası 
+
+Kurulan modeli test etmek için kullandığımız veri seti için oluşan hatadır.
+
+> Eğitim hatası test hatasının yanlı ve kötü bir tahmincisidir.
+
+### Esneklik Kavramı 
+
+Esneklik verinin fonksiyonel yapısının uygun bir şekilde yorumlanmasıdır.
+
+### Yanlılık Kavramı 
+
+Gerçek değerler ile tahmin edilen değerler arasındaki farkı ifade eden kavrama yanlılık denir.
+
+### Varyans Kavramı
+
+Varyans, esnekliğin yüksek olmasıdır. 
+
+#### Yüksek Yanlılık - Underfitting 
+
+Verinin tüm değerlerini temsil edemiyor. Az öğrenmiştir denilir. 
+
+Bazı değerlerde tahmin değere çok yakın bazı değerlerde çok uzaktır.
+
+#### Düşük Yanlılık, Düşük Varyans - Optimum Model 
+
+> Varyans arttıkça yanlılık azalır. Bu da ezber yapmak anlamına gelir.
+
+#### Yüksek Varyans  - Overfitting
+
+Varyansı yüksek bir fonksiyon veri setinin çok iyi temsil eden esnek bir yapıdır. Değerler ile tahmin neredeyse birebir hale gelmiştir. Veri seti çok iyi öğrenilmiştir.
+
+> Üstünde test edildiği modeli çok iyi öğrenmiştir, fakat başka bir modelle çalıştırıldığında ezberlediği modeli diğer modele uygulamaya çalışacağından performans düşecektir. 
+
+> Esneklik ortalama test hatasına göre seçilir.
+
+### Modelin Optimizasyonu
+
+![ModelComplexity](https://miro.medium.com/max/1400/1*WXi_7HIL3FKETFdfegcEmA.png)
+
+Yukarıda yer alan learning curve eğrisi (öğrenme eğrisi) modelin eğitim setini belirli bir noktaya kadar öğrendikçe hatasının düştüğünü fakat öğrenilen bu seti test modeline uyguladığımızda bir noktadan sonra test setini doğru tahminleyemediğini anlatır. Çünkü modelimiz aşırı öğrenmiştir ve test setindeki değerler eğitim değerlerinden farklı olduğunda bu değerleri tahmin edememektedir.
+
+## MODEL TUNING
+
+### Model Parametresi
+
+![Parametreler](https://miro.medium.com/max/1400/1*_TqRJ9SmwFzRigJhMiN2uw.png)
+
+Veriden öğrenilen katsayılara verilen isimdir.
+
+
+
+### Model Hiperparametreleri
+
+Kullanıcı tarafından belirlenen ve veri ile optimize edilen parametrelerdir.
